@@ -1,0 +1,61 @@
+.sidebar {
+    background-color: $color-primary;
+    grid-column: sidebar-start / sidebar-end;
+    grid-row: 1 / -1;
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+    @media only screen and (max-width: $bp-large) {
+        grid-column: 1 / -1;
+        grid-row: 1 / 2;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    &__menu {
+        width: 40vw;
+        height: 100%;
+        background-color: rgba($color-secondary, .8);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        position: absolute;
+        left: -40vw;
+        transition: 0.5s;
+        z-index: 12;
+        &_active {
+            left: 0;
+        }
+        &-items {
+            position: fixed;
+        }
+        &-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 2rem;
+            width: 12rem;
+            height: 12rem;
+        }
+        &-link {
+            width: 100%;
+            height: 100%;
+            color: $color-grey-light-2;
+            font-size: 2.5rem;
+            font-family: $font-display;
+            text-decoration: none;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: .4s;
+            z-index: 6;
+            &:hover {
+                background-color: rgba(darken($color-secondary, .9), .9);
+            }
+
+        }
+    }
+}
+

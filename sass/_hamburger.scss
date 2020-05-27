@@ -1,0 +1,32 @@
+.hamburger {
+    margin-top: 3rem;
+    outline: none;
+    width: 4.5rem;
+    position: fixed;
+    z-index: 10;
+    span {
+        display: block;
+        background-color: #fff;
+        height: 2px;
+        width: 4.5rem;
+        margin-bottom: 1.5rem;
+        transition: .8s;
+    }
+    @media only screen and (max-width: $bp-large) {
+        margin-right: 3.5rem;
+        margin-top: 1rem;
+    }
+    &_active {
+        span {
+            &:nth-child(1) {
+            transform:  translateY(.85rem)rotate(-45deg);
+            }
+			&:nth-child(2) {
+            display: none;
+            }
+			&:nth-child(3) {
+            transform: translateY(-.85rem)rotate(45deg);
+            }
+        }
+    }
+}

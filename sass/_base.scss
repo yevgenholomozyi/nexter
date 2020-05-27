@@ -1,0 +1,56 @@
+*, 
+*:before,
+*:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+} 
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+    @media only screen and (max-width: $bp-largest) {
+        font-size: 50%;
+    }
+}
+body {
+    font-family: $font-primary;
+    color: $color-grey-dark-2;
+    font-weight: 300;
+    line-height: 1.6;
+}
+.container {
+    display: grid;
+    grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
+    grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem)[col-end]) [center-end] minmax(6rem, 1fr);
+
+    @media only screen and (max-width: $bp-large) { // the very first grid-column is deleted and one grid-row is added at the begining 
+
+        grid-template-rows: 6rem 80vh min-content 40vw repeat(3, min-content);
+        grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem)[col-end]) [center-end] minmax(6rem, 1fr);
+    }
+
+    @media only screen and (max-width: $bp-medium) { // the second row is increased from 80vh to  100vh - 6rem, one grid-row is added at the 3rd position and the 5th row is changed from 40vw to max-content
+
+        grid-template-rows: 6rem calc(100vh - 6rem);
+    }
+
+}
+
+// Helper Classes
+
+// Margin-bottom classes
+.mb-sm {
+    margin-bottom: mbsizes(sm); // function @mbsizes as well values of margin-bottoms are places in _abstracts.scss
+}
+.mb-md {
+    margin-bottom: mbsizes(md);
+}
+.mb-lg {
+    margin-bottom: mbsizes(lg);
+}
+.mb-xl {
+    margin-bottom: mbsizes(hg);
+}
+.mb-hg {
+    margin-bottom: mbsizes(lg);
+}
